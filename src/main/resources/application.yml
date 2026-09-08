@@ -1,6 +1,8 @@
 spring:
   application:
    name: ms-discovery
+  config:
+    import: "classpath:application-vault.yml,vault://"
 
 server:
   port: 8761
@@ -10,6 +12,6 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-        defaultZone: http://localhost:8761/eureka/
+        defaultZone: ${eureka-server}
   instance:
     prefer-ip-address: true
